@@ -22,13 +22,33 @@
     </nav>
 
     <section aria-label="Søgning">
-        <label for="cityInput">Indtast by</label>
-        <input type="text" id="cityInput" placeholder="fx København">
-        <button onclick="getWeather()">Hent vejr</button>
+        <!-- Wrapper til enkelt søgning, så vi kan skjule det ved sammenligning -->
+        <section id="singleSearchWrapper">
+            <label for="cityInput">Indtast by</label>
+            <input type="text" id="cityInput" placeholder="fx København">
+            <button id="getWeatherBtn" onclick="getWeather()">Hent vejr</button>
+        </section>
 
+        <button id="toggleCompareBtn" onclick="showCompare()">Sammenlign 2 byer</button>
+        <button id="backBtn" onclick="hideCompare()" hidden>← Tilbage</button>
+
+        <form id="compareForm" style="display: none;" onsubmit="compareCities(event)">
+            <label for="city1">By 1</label>
+            <input type="text" id="city1" placeholder="fx Aarhus">
+
+            <label for="city2">By 2</label>
+            <input type="text" id="city2" placeholder="fx Odense">
+
+            <button type="submit">Sammenlign</button>
+        </form>
     </section>
 
-    <section id="weatherResult" aria-live="polite">
+    <section id="weatherResult" aria-live="polite"></section>
+
+    <!-- Container til knapper -->
+    <section id="buttonContainer" aria-label="Sideknapper">
+        <button id="printBtn" onclick="printWeather()" hidden title="Print vejrresultat">🖨️ Print</button>
+        <button id="resetBtn" onclick="resetPage()">🔄 Nulstil side</button>
     </section>
 
     <footer>
