@@ -1,14 +1,19 @@
 function getWeather() {
     const city = document.getElementById("cityInput").value;
+    const result = document.getElementById("weatherResult");
+
+    // Vis loading-feedback
+    result.innerHTML = "<p>⏳ Indlæser vejrdata...</p>";
+    document.getElementById("printBtn").hidden = true;
+
     fetch(`api.php?city=${city}`)
         .then(res => res.text())
         .then(data => {
-            document.getElementById("weatherResult").innerHTML = data;
+            result.innerHTML = data;
             document.getElementById("printBtn").hidden = false;
         })
         .catch(() => {
-            document.getElementById("weatherResult").innerHTML = "Der opstod en fejl – prøv et andet bynavn.";
-            document.getElementById("printBtn").hidden = true;
+            result.innerHTML = "<p>Der opstod en fejl – prøv et andet bynavn.</p>";
         });
 }
 
