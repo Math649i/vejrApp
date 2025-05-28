@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <title>Vejr App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+    <header>
+        <h1>Se vejret</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav style="text-align: center; margin-bottom: 20px;">
+        <a href="index.html">Hjem</a> |
+        <a href="om-os.html">Om os</a> |
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <section aria-label="Søgning">
+        <label for="cityInput">Indtast by</label>
+        <input type="text" id="cityInput" placeholder="fx København">
+        <button onclick="getWeather()">Hent vejr</button>
+
+    </section>
+
+    <section id="weatherResult" aria-live="polite">
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Din VejrApp</p>
+    </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
